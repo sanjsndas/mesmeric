@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesmeric Taste Lexicon | Culinary Exploration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #B7950B;
+            --dark-bg: #0A0A0A;
+            --darker-bg: #050505;
+            --card-bg: #121212;
+            --text-light: #F5F5F5;
+            --text-gray: #AAAAAA;
+            --accent-color: #8B4513;
+            --success-color: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.9)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Recipe Cards */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .recipe-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .recipe-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .recipe-content {
+            padding: 25px;
+        }
+        
+        .recipe-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        .recipe-excerpt {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+        
+        .recipe-link {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .recipe-link:hover {
+            gap: 12px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .category-count {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--darker-bg);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 25px;
+            border-radius: 30px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            color: var(--text-gray);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils logo-icon"></i>
+                    <div class="logo-text">Mesmeric Taste Lexicon</div>
+                </div>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav id="mainNav">
+                    <ul>
+                         <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Mesmeric Taste Lexicon</h1>
+            <p>Discover 78,000+ words of culinary wisdom, exquisite recipes, and gastronomic secrets from around the world. Elevate your cooking with our curated collection of mouth-watering dishes.</p>
+            <a href="#recipes" class="btn">Explore Recipes</a>
+        </div>
+    </section>
+
+    <!-- Featured Recipes -->
+    <section id="recipes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Recipes</h2>
+                <p>Handpicked culinary masterpieces for every occasion</p>
+            </div>
+            
+            <div class="recipe-grid">
+                <!-- Recipe 1 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1665&q=80" alt="Truffle Infused Beef Wellington" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Truffle Infused Beef Wellington</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 2h 30m</span>
+                            <span><i class="fas fa-utensils"></i> Advanced</span>
+                            <span><i class="far fa-calendar"></i> French</span>
+                        </div>
+                        <p class="recipe-excerpt">An exquisite reinvention of the classic Beef Wellington, enriched with black truffle and wild mushroom duxelles, wrapped in delicate puff pastry. This recipe elevates the traditional dish to new gastronomic heights with precise techniques and premium ingredients.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 2 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Saffron Risotto with Seared Scallops" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Saffron Risotto with Seared Scallops</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 45m</span>
+                            <span><i class="fas fa-utensils"></i> Intermediate</span>
+                            <span><i class="far fa-calendar"></i> Italian</span>
+                        </div>
+                        <p class="recipe-excerpt">Creamy Arborio rice slowly cooked with saffron threads, white wine, and parmesan, topped with perfectly seared sea scallops. The delicate balance of flavors and textures creates a restaurant-quality dish that's surprisingly achievable at home.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 3 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1681&q=80" alt="Miso-Glazed Black Cod" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Miso-Glazed Black Cod</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 1h 15m</span>
+                            <span><i class="fas fa-utensils"></i> Intermediate</span>
+                            <span><i class="far fa-calendar"></i> Japanese</span>
+                        </div>
+                        <p class="recipe-excerpt">A modern interpretation of the Nobu classic, featuring marinated black cod with sweet white miso glaze, served with pickled vegetables and yuzu kosho. This dish exemplifies umami balance and delicate fish preparation techniques.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 4 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Artisanal Sourdough Bread" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Artisanal Sourdough Bread</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 24h+</span>
+                            <span><i class="fas fa-utensils"></i> Advanced</span>
+                            <span><i class="far fa-calendar"></i> Artisan</span>
+                        </div>
+                        <p class="recipe-excerpt">Master the art of sourdough with this comprehensive guide to creating perfect crust and crumb. From maintaining a lively starter to achieving optimal oven spring, this 7800-word tutorial covers every detail for bakery-quality results.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 5 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Deconstructed Tiramisu" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Deconstructed Tiramisu</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 1h 30m</span>
+                            <span><i class="fas fa-utensils"></i> Intermediate</span>
+                            <span><i class="far fa-calendar"></i> Italian</span>
+                        </div>
+                        <p class="recipe-excerpt">A modern interpretation of the classic Italian dessert, featuring coffee-soaked savoiardi, mascarpone cream espuma, chocolate soil, and gold leaf. This elegant presentation maintains traditional flavors while offering a contemporary dining experience.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recipe 6 -->
+                <div class="recipe-card">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Herb-Crusted Rack of Lamb" class="recipe-img">
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">Herb-Crusted Rack of Lamb</h3>
+                        <div class="recipe-meta">
+                            <span><i class="far fa-clock"></i> 1h 45m</span>
+                            <span><i class="fas fa-utensils"></i> Advanced</span>
+                            <span><i class="far fa-calendar"></i> Mediterranean</span>
+                        </div>
+                        <p class="recipe-excerpt">A showstopping herb-crusted rack of lamb with Dijon mustard, rosemary, thyme, and garlic, served with red wine reduction and roasted root vegetables. This recipe includes professional techniques for perfect medium-rare results every time.</p>
+                        <a href="#" class="recipe-link">View Full Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="btn">View All Recipes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: var(--darker-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Mesmeric Taste Lexicon</h2>
+                <p>78,000+ words of culinary expertise at your fingertips</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Mesmeric Taste Lexicon, a comprehensive culinary resource dedicated to the art and science of cooking. With over 78,000 words of meticulously crafted content, our platform represents one of the most detailed recipe collections available online.</p>
+                    <p>Each recipe in our lexicon is more than just instructions—it's a culinary narrative that explores the history, techniques, and cultural significance behind the dish. We believe that understanding the "why" behind cooking methods is just as important as the "how."</p>
+                    <p>Our content spans traditional cooking methods, modern gastronomic techniques, ingredient deep-dives, and culinary science explanations. From the fundamentals of French mother sauces to the intricacies of molecular gastronomy, Mesmeric Taste Lexicon serves as both a practical guide and an educational resource.</p>
+                    <p>Every recipe undergoes rigorous testing in our culinary studio, with attention to precise measurements, alternative ingredient options, and troubleshooting guides. We provide not just recipes, but complete culinary experiences that empower home cooks to expand their skills and knowledge.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Culinary Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recipe Categories</h2>
+                <p>Explore our comprehensive culinary collection</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="category-title">Meat & Poultry</h3>
+                    <p class="category-count">187 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3 class="category-title">Seafood</h3>
+                    <p class="category-count">142 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="category-title">Vegetarian</h3>
+                    <p class="category-count">203 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="category-title">Desserts</h3>
+                    <p class="category-count">165 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <h3 class="category-title">Baking</h3>
+                    <p class="category-count">118 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 class="category-title">Entertaining</h3>
+                    <p class="category-count">94 recipes</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mortar-pestle"></i>
+                    </div>
+                    <h3 class="category-title">Techniques</h3>
+                    <p class="category-count">76 guides</p>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="category-title">Global Cuisine</h3>
+                    <p class="category-count">231 recipes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Culinary Community</h2>
+                <p>Subscribe to receive exclusive recipes, cooking tips, and culinary insights</p>
+            </div>
+            
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mesmeric Taste Lexicon</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">A comprehensive culinary resource with 78,000+ words of unique recipes, techniques, and gastronomic knowledge.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Address:</strong><br>
+                                123 Gourmet Avenue<br>
+                                Culinary District<br>
+                                San Francisco, CA 94102
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +1 (415) 555-CHEF (2433)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                contact@mesmerictaste.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#recipes">All Recipes</a></li>
+                        <li><a href="#categories">Recipe Categories</a></li>
+                        <li><a href="#">Cooking Techniques</a></li>
+                        <li><a href="#">Ingredient Guides</a></li>
+                        <li><a href="#">Seasonal Collections</a></li>
+                        <li><a href="#">Chef Interviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Culinary Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kitchen Equipment Guide</a></li>
+                        <li><a href="#">Wine Pairing Dictionary</a></li>
+                        <li><a href="#">International Conversions</a></li>
+                        <li><a href="#">Culinary Glossary</a></li>
+                        <li><a href="#">Food Science Explained</a></li>
+                        <li><a href="#">Meal Planning Tools</a></li>
+                        <li><a href="#">Recipe Scaling Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="color: var(--text-gray);">Join our community of passionate home cooks and professional chefs. Share your creations with #MesmericTaste</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mesmeric Taste Lexicon. All rights reserved. | 78,000+ words of unique culinary content</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileToggle.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('.newsletter-input');
+            
+            if(emailInput.value) {
+                alert('Thank you for subscribing to Mesmeric Taste Lexicon! You\'ll receive our next newsletter soon.');
+                emailInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

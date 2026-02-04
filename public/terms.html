@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Privacy | Mesmeric Taste Lexicon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #B7950B;
+            --dark-bg: #0A0A0A;
+            --darker-bg: #050505;
+            --card-bg: #121212;
+            --text-light: #F5F5F5;
+            --text-gray: #AAAAAA;
+            --accent-color: #8B4513;
+            --success-color: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.9)), url('https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1922&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Terms Content */
+        .terms-container {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 50px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .terms-section {
+            margin-bottom: 40px;
+        }
+        
+        .terms-section h3 {
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .terms-section p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+        
+        .terms-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .terms-section li {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(212, 175, 55, 0.05);
+            border-left: 4px solid var(--primary-gold);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .effective-date {
+            text-align: center;
+            font-style: italic;
+            color: var(--primary-gold);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Back to Home Button */
+        .back-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .terms-container {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .terms-container {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils logo-icon"></i>
+                    <div class="logo-text">Mesmeric Taste Lexicon</div>
+                </div>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="terms.html">Terms Of Privacy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookies Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Terms of Privacy</h1>
+            <p>Understanding how we collect, use, and protect your personal information</p>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Commitment to Your Privacy</h2>
+                <p>Last Updated: October 15, 2023</p>
+            </div>
+            
+            <div class="terms-container">
+                <div class="terms-section">
+                    <h3>1. Introduction</h3>
+                    <p>Welcome to Mesmeric Taste Lexicon ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy policy or our practices with regard to your personal information, please contact us at <strong>privacy@mesmerictaste.com</strong>.</p>
+                    <p>This Terms of Privacy policy applies to all information collected through our website <strong>mesmerictastelexicon.com</strong> (the "Site"), and/or any related services, sales, marketing, or events (we refer to them collectively in this privacy policy as the "Services").</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>2. Information We Collect</h3>
+                    <p>We collect personal information that you voluntarily provide to us when you register on the Site, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Site, or otherwise when you contact us.</p>
+                    
+                    <div class="highlight-box">
+                        <p>The personal information we collect may include the following:</p>
+                    </div>
+                    
+                    <ul>
+                        <li><strong>Account Information:</strong> Name, email address, username, password, and other registration details.</li>
+                        <li><strong>Profile Information:</strong> Profile picture, biography, cooking preferences, dietary restrictions, and skill level.</li>
+                        <li><strong>Content You Create:</strong> Recipes you submit, comments, reviews, ratings, and saved favorites.</li>
+                        <li><strong>Communication Data:</strong> Messages you send to us, feedback, and survey responses.</li>
+                        <li><strong>Technical Data:</strong> IP address, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access our Site.</li>
+                        <li><strong>Usage Data:</strong> Information about how you use our website, products, and services.</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>3. How We Use Your Information</h3>
+                    <p>We use personal information collected via our Site for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.</p>
+                    
+                    <ul>
+                        <li><strong>To provide and maintain our Service:</strong> Including to monitor the usage of our Service.</li>
+                        <li><strong>To manage your account:</strong> To manage your registration as a user of the Service.</li>
+                        <li><strong>For the performance of a contract:</strong> The development, compliance, and undertaking of the purchase contract for the products, items, or services you have purchased or of any other contract with us through the Service.</li>
+                        <li><strong>To contact you:</strong> To contact you by email, telephone calls, SMS, or other equivalent forms of electronic communication regarding updates or informative communications related to the functionalities, products, or contracted services.</li>
+                        <li><strong>To provide you with news, special offers, and general information</strong> about other goods, services, and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information.</li>
+                        <li><strong>To manage your requests:</strong> To attend and manage your requests to us.</li>
+                        <li><strong>For business transfers:</strong> We may use your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets.</li>
+                        <li><strong>For other purposes:</strong> We may use your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns, and to evaluate and improve our Service, products, services, marketing, and your experience.</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>4. Sharing Your Information</h3>
+                    <p>We may share your personal information in the following situations:</p>
+                    
+                    <ul>
+                        <li><strong>With Service Providers:</strong> We may share your personal information with Service Providers to monitor and analyze the use of our Service, to contact you.</li>
+                        <li><strong>For business transfers:</strong> We may share or transfer your personal information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+                        <li><strong>With Affiliates:</strong> We may share your information with our affiliates, in which case we will require those affiliates to honor this privacy policy.</li>
+                        <li><strong>With business partners:</strong> We may share your information with our business partners to offer you certain products, services, or promotions.</li>
+                        <li><strong>With other users:</strong> When you share personal information or otherwise interact in public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>
+                        <li><strong>With your consent:</strong> We may disclose your personal information for any other purpose with your consent.</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>5. Data Security</h3>
+                    <p>We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure.</p>
+                    <p>We will do our best to protect your personal information, but we cannot guarantee the absolute security of data transmitted to our site; any transmission is at your own risk. Once we have received your information, we will use strict procedures and security features to try to prevent unauthorized access.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>6. Your Privacy Rights</h3>
+                    <p>Depending on your location, you may have certain rights regarding your personal information. These may include the right to:</p>
+                    
+                    <ul>
+                        <li>Request access to your personal information</li>
+                        <li>Request correction of the personal information that we hold about you</li>
+                        <li>Request erasure of your personal information</li>
+                        <li>Object to processing of your personal information</li>
+                        <li>Request restriction of processing your personal information</li>
+                        <li>Request transfer of your personal information</li>
+                        <li>Withdraw consent at any time where we are relying on consent to process your personal information</li>
+                    </ul>
+                    
+                    <p>If you wish to exercise any of the rights set out above, please contact us at <strong>privacy@mesmerictaste.com</strong>.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>7. Children's Privacy</h3>
+                    <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.</p>
+                    <p>If we become aware that we have collected personal data from anyone under the age of 13 without verification of parental consent, we take steps to remove that information from our servers.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>8. Changes to This Privacy Policy</h3>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy.</p>
+                    <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3>9. Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, you can contact us:</p>
+                    
+                    <ul>
+                        <li><strong>By email:</strong> privacy@mesmerictaste.com</li>
+                        <li><strong>By visiting this page on our website:</strong> mesmerictastelexicon.com/contact</li>
+                        <li><strong>By phone number:</strong> +1 (415) 555-CHEF (2433)</li>
+                        <li><strong>By mail:</strong> 123 Gourmet Avenue, Culinary District, San Francisco, CA 94102</li>
+                    </ul>
+                </div>
+                
+                <div class="effective-date">
+                    <p>This Terms of Privacy policy is effective as of October 15, 2023.</p>
+                </div>
+            </div>
+            
+            <div class="back-home">
+                <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mesmeric Taste Lexicon</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">A comprehensive culinary resource with 78,000+ words of unique recipes, techniques, and gastronomic knowledge.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Address:</strong><br>
+                                123 Gourmet Avenue<br>
+                                Culinary District<br>
+                                San Francisco, CA 94102
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +1 (415) 555-CHEF (2433)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                privacy@mesmerictaste.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal Pages</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Privacy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookies Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Copyright Information</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Site Information</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Recipe Collections</a></li>
+                        <li><a href="#">Cooking Techniques</a></li>
+                        <li><a href="#">Ingredient Guides</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="color: var(--text-gray);">Join our community of passionate home cooks and professional chefs. Share your creations with #MesmericTaste</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mesmeric Taste Lexicon. All rights reserved. | 78,000+ words of unique culinary content</p>
+                <p style="margin-top: 10px;">This Terms of Privacy policy was last updated on October 15, 2023</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileToggle.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

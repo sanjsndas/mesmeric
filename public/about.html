@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Mesmeric Taste Lexicon | Culinary Exploration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #B7950B;
+            --dark-bg: #0A0A0A;
+            --darker-bg: #050505;
+            --card-bg: #121212;
+            --text-light: #F5F5F5;
+            --text-gray: #AAAAAA;
+            --accent-color: #8B4513;
+            --success-color: #2E8B57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-gold);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-gold);
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 180px 0 80px;
+            background: linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.95)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .page-header p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Mission Section */
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .mission-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+        
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-box {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+        
+        .mission-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .team-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .team-content {
+            padding: 25px;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 5px;
+        }
+        
+        .team-role {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .team-bio {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            color: var(--primary-gold);
+        }
+        
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .value-description {
+            color: var(--text-gray);
+        }
+        
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .timeline-description {
+            color: var(--text-gray);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-gold);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--darker-bg);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--dark-bg);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            color: var(--text-gray);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            color: var(--primary-gold);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .page-header {
+                padding: 150px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-utensils logo-icon"></i>
+                    <div class="logo-text">Mesmeric Taste Lexicon</div>
+                </div>
+                
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="terms.html">Terms Of Privacy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookies Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Mesmeric Taste Lexicon</h1>
+            <p>Discover the story, mission, and culinary philosophy behind our 78,000+ word collection of exquisite recipes and gastronomic wisdom.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Culinary Mission</h2>
+                <p>Elevating home cooking through knowledge, precision, and passion</p>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>Founded in 2018, Mesmeric Taste Lexicon emerged from a simple yet profound realization: while countless recipe websites existed, few provided the depth of culinary understanding that transforms a cook into a chef. We set out to create a resource that doesn't just tell you how to cook, but teaches you why techniques work and how flavors combine.</p>
+                    
+                    <p>Our mission is to democratize culinary expertise, making professional-grade cooking knowledge accessible to home cooks worldwide. Each of our 78,000+ words is carefully crafted to provide not just instructions, but context—explaining the science behind techniques, the history of dishes, and the cultural significance of ingredients.</p>
+                    
+                    <p>We believe that understanding the "why" behind cooking methods is just as important as the "how." That's why every recipe includes detailed explanations of techniques, alternative approaches for different skill levels, and troubleshooting guides for common pitfalls.</p>
+                    
+                    <div class="mission-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">78,000+</div>
+                            <div class="stat-label">Words of Content</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">1,200+</div>
+                            <div class="stat-label">Recipes & Guides</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">42</div>
+                            <div class="stat-label">Countries Represented</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Professional Chefs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Culinary Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" style="background-color: var(--darker-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Culinary Team</h2>
+                <p>The passionate experts behind our extensive recipe collection</p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Chef Elena Rodriguez" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Chef Elena Rodriguez</h3>
+                        <p class="team-role">Executive Chef & Founder</p>
+                        <p class="team-bio">Former executive chef at Michelin-starred "Bistro Éclat," Elena brings 15 years of professional culinary experience with specialties in French and Mediterranean cuisine.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Dr. Marcus Chen" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Dr. Marcus Chen</h3>
+                        <p class="team-role">Food Scientist & Content Director</p>
+                        <p class="team-bio">PhD in Food Science from Cornell University. Marcus ensures our recipes are scientifically sound and explains the chemistry behind cooking techniques in accessible language.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1556906781-2a5dc7b5ba8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Isabella Moretti" class="team-img">
+                    <div class="team-content">
+                        <h3 class="team-name">Isabella Moretti</h3>
+                        <p class="team-role">Pastry Chef & Baking Specialist</p>
+                        <p class="team-bio">Trained at Le Cordon Bleu Paris, Isabella specializes in artisanal baking and pastry. Her 78-step sourdough tutorial is one of our most popular resources.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Culinary Values</h2>
+                <p>The principles that guide every recipe we create</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="value-title">Depth Over Breadth</h3>
+                    <p class="value-description">We believe in thoroughly exploring culinary topics rather than superficially covering many. Each recipe includes historical context, technique explanations, and scientific principles.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Precision & Accuracy</h3>
+                    <p class="value-description">Every recipe undergoes rigorous testing in our culinary studio. We provide exact measurements, cooking times, and temperature guidelines for reproducible results.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="value-title">Cultural Respect</h3>
+                    <p class="value-description">We approach international cuisine with respect for its origins. Our recipes include information about traditional preparation methods and cultural significance.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="value-title">Education Focused</h3>
+                    <p class="value-description">Our goal is to teach, not just instruct. We explain why techniques work, how flavors combine, and what to do when things don't go as planned.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="value-title">Seasonal & Sustainable</h3>
+                    <p class="value-description">We emphasize seasonal ingredients and sustainable practices. Our recipes include suggestions for substitutions based on availability and locality.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Community Driven</h3>
+                    <p class="value-description">We actively incorporate feedback from our community of home cooks. Many of our most popular features were suggested by our readers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" style="background-color: var(--darker-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>From a simple idea to 78,000+ words of culinary expertise</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">The Beginning</h3>
+                        <p class="timeline-description">Chef Elena Rodriguez founded Mesmeric Taste Lexicon with just 12 detailed recipes. The goal was to create recipes that taught technique, not just listed ingredients.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3 class="timeline-title">First Milestone</h3>
+                        <p class="timeline-description">Reached 100 recipes and 25,000 words of content. Added Dr. Marcus Chen to the team to incorporate food science explanations into all recipes.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">Expansion & Recognition</h3>
+                        <p class="timeline-description">Featured in "Culinary Arts Monthly" as "The Most Detailed Recipe Resource Online." Expanded team to include pastry specialist Isabella Moretti.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="timeline-title">Culinary Studio Launch</h3>
+                        <p class="timeline-description">Opened dedicated culinary studio for recipe testing and photography. Began producing video tutorials to complement written content.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="timeline-title">International Expansion</h3>
+                        <p class="timeline-description">Added recipes from 15 additional countries. Launched seasonal ingredient guides and sustainable cooking resources.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">78,000+ Words Milestone</h3>
+                        <p class="timeline-description">Reached our current milestone of over 78,000 words of unique culinary content across 1,200+ recipes and guides. Serving over 500,000 monthly readers worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Culinary Journey</h2>
+                <p>Explore 78,000+ words of unique recipes, techniques, and gastronomic knowledge</p>
+            </div>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#recipes" class="btn">Explore Recipes</a>
+                <a href="contact.html" class="btn" style="background-color: transparent; color: var(--primary-gold);">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mesmeric Taste Lexicon</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 20px;">A comprehensive culinary resource with 78,000+ words of unique recipes, techniques, and gastronomic knowledge.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div>
+                                <strong>Address:</strong><br>
+                                123 Gourmet Avenue<br>
+                                Culinary District<br>
+                                San Francisco, CA 94102
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                +1 (415) 555-CHEF (2433)
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                contact@mesmerictaste.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#recipes">All Recipes</a></li>
+                        <li><a href="index.html#categories">Recipe Categories</a></li>
+                        <li><a href="#">Cooking Techniques</a></li>
+                        <li><a href="#">Ingredient Guides</a></li>
+                        <li><a href="#">Seasonal Collections</a></li>
+                        <li><a href="#">Chef Interviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Culinary Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Kitchen Equipment Guide</a></li>
+                        <li><a href="#">Wine Pairing Dictionary</a></li>
+                        <li><a href="#">International Conversions</a></li>
+                        <li><a href="#">Culinary Glossary</a></li>
+                        <li><a href="#">Food Science Explained</a></li>
+                        <li><a href="#">Meal Planning Tools</a></li>
+                        <li><a href="#">Recipe Scaling Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 15px; margin-bottom: 25px;">
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="color: var(--primary-gold); font-size: 1.5rem;"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="color: var(--text-gray);">Join our community of passionate home cooks and professional chefs. Share your creations with #MesmericTaste</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mesmeric Taste Lexicon. All rights reserved. | 78,000+ words of unique culinary content</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            mobileToggle.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
